@@ -122,7 +122,10 @@ footer a{color:#fff}
   .pie .btn{justify-content:center;padding:9px 10px;font-size:13px}
   .num{width:36px;height:36px;font-size:14px}
   .ver{display:none}
-  .cat-tit h2{font-size:40px}
+  .cat-tit{flex-wrap:wrap;gap:2px 12px}
+  .cat-tit h2{font-size:40px;white-space:nowrap}
+  .cat-tit span{flex-basis:100%;font-size:15px}
+  .cat-tit:after{display:none}
   .buscar{flex:1 1 100%}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}

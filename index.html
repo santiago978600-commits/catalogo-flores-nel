@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flores Nel · Catálogo</title>
+<meta name="description" content="Catálogo de ramos, ramos de mano y cajas de rosas de Flores Nel. Pedidos por WhatsApp al 320 832 6959.">
+<meta property="og:title" content="Flores Nel · Catálogo de ramos">
+<meta property="og:description" content="Ramos, ramos de mano y cajas de rosas. Pide por WhatsApp.">
+<meta property="og:image" content="fichas/004.jpg">
+<meta name="theme-color" content="#8e0f32">
+<link rel="icon" href="img/icono.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --vino:#8e0f32; --vino-2:#5f0820; --magenta:#c8185c; --oro:#c9a058; --oro-2:#ecce8c;
+  --texto:#3c1e26; --suave:#6e5c60; --fondo:#fdf7f8; --card:#ffffff; --linea:#f0dde2;
+  --wa:#25d366; --wa-2:#1da851; --sombra:0 10px 30px -12px rgba(95,8,32,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Montserrat,system-ui,sans-serif;color:var(--texto);background:var(--fondo);
+  -webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+/* cabecera */
+.hero{background:radial-gradient(120% 90% at 50% 0%,#fff 0%,#fdf0f3 60%,#f8e3e9 100%);
+  border-bottom:1px solid var(--linea);text-align:center;padding:28px 0 26px}
+.hero img.logo{width:min(360px,78vw);margin:0 auto}
+.hero h1{font-family:"Great Vibes",cursive;font-weight:400;color:var(--magenta);
+  font-size:clamp(46px,9vw,76px);margin:6px 0 0;line-height:1}
+.hero p{color:var(--vino);margin:10px 0 18px;font-size:16px;font-weight:500;letter-spacing:.2px}
+.hero .acciones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:12px 20px;
+  font-weight:600;font-size:15px;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s}
+.btn:active{transform:scale(.97)}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 8px 20px -8px rgba(37,211,102,.7)}
+.btn-wa:hover{background:var(--wa-2)}
+.btn-borde{background:#fff;color:var(--vino);border:1.5px solid var(--oro)}
+.btn-borde:hover{background:#fff8ec}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* barra de filtros */
+.barra{position:sticky;top:0;z-index:20;background:rgba(253,247,248,.92);backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
+.barra .wrap{display:flex;gap:12px;align-items:center;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;flex:1 1 auto;padding:2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{white-space:nowrap;border:1.5px solid var(--linea);background:#fff;color:var(--texto);
+  border-radius:999px;padding:9px 16px;font-size:14px;font-weight:600;transition:all .15s}
+.chip small{font-weight:500;color:var(--suave);margin-left:4px}
+.chip[aria-pressed="true"]{background:var(--vino);border-color:var(--vino);color:#fff}
+.chip[aria-pressed="true"] small{color:#ffd9c4}
+.buscar{flex:0 1 260px;min-width:180px;position:relative}
+.buscar input{width:100%;border:1.5px solid var(--linea);border-radius:999px;padding:10px 14px 10px 38px;
+  font:inherit;font-size:14px;background:#fff;color:var(--texto);outline:none}
+.buscar input:focus{border-color:var(--oro)}
+.buscar svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:17px;height:17px;color:var(--suave)}
+
+/* secciones y tarjetas */
+section.cat{padding:34px 0 8px}
+section.cat[hidden]{display:none}
+.cat-tit{display:flex;align-items:baseline;gap:14px;margin:0 0 18px}
+.cat-tit h2{font-family:"Great Vibes",cursive;font-weight:400;color:var(--magenta);font-size:48px;margin:0;line-height:1}
+.cat-tit span{font-family:"Bodoni Moda",serif;font-style:italic;color:var(--vino);font-size:17px}
+.cat-tit:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--oro),transparent);align-self:center}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--card);border:1px solid var(--linea);border-radius:22px;overflow:hidden;
+  display:flex;flex-direction:column;box-shadow:0 1px 0 rgba(0,0,0,.02);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--sombra)}
+.foto{position:relative;aspect-ratio:1/1;overflow:hidden;background:radial-gradient(90% 80% at 50% 45%,#fff 0%,#fbf1f3 100%);
+  border:0;width:100%;padding:0;display:block}
+.foto img{position:absolute;left:8%;right:8%;top:10%;bottom:4%;width:84%;height:86%;object-fit:contain;
+  object-position:50% 100%;filter:drop-shadow(0 10px 12px rgba(95,8,32,.18));transition:transform .3s}
+.card:hover .foto img{transform:scale(1.04)}
+.num,.ver{z-index:1}
+.num{position:absolute;top:12px;left:12px;width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(#cd1e3e,#7a081e);color:#fff;font-family:"Bodoni Moda",serif;font-weight:700;
+  display:grid;place-items:center;font-size:17px;box-shadow:0 0 0 3px var(--oro-2),0 4px 10px rgba(0,0,0,.18)}
+.ver{position:absolute;top:14px;right:12px;font-size:12px;font-weight:600;color:var(--vino);background:#fff;
+  border:1px solid var(--linea);border-radius:999px;padding:5px 10px}
+.info{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.info h3{font-family:"Great Vibes",cursive;font-weight:400;font-size:32px;color:var(--magenta);margin:0;line-height:1.05}
+.comps{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.comps li{font-size:12.5px;background:#fbf1f3;color:var(--texto);border-radius:999px;padding:4px 10px}
+.pie{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:8px}
+.precio{font-family:"Bodoni Moda",serif;font-weight:700;font-size:26px;color:var(--vino);line-height:1}
+.precio.txt{font-size:15px;font-family:Montserrat,sans-serif;font-weight:600}
+.pie .btn{padding:10px 14px;font-size:14px}
+.vacio{text-align:center;color:var(--suave);padding:60px 0}
+
+/* visor */
+dialog{border:0;padding:0;border-radius:20px;max-width:min(560px,94vw);width:100%;background:#fff;
+  box-shadow:0 30px 80px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(40,5,15,.6);backdrop-filter:blur(3px)}
+dialog img{width:100%;height:auto}
+dialog .barra-d{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:12px 14px;
+  background:linear-gradient(#961038,#600820);color:#fff}
+dialog .barra-d .precio{color:#fff}
+.cerrar{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;border:0;
+  background:rgba(255,255,255,.95);color:var(--vino);font-size:22px;line-height:1;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+
+/* pie de pagina y boton flotante */
+footer{margin-top:40px;background:linear-gradient(#8e0f32,#5f0820);color:#ffe3d6;text-align:center;padding:34px 16px 90px}
+footer img{width:220px;margin:0 auto 10px;filter:brightness(0) invert(1)}
+footer a{color:#fff}
+.flotante{position:fixed;right:16px;bottom:16px;z-index:30;width:60px;height:60px;border-radius:50%;
+  background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 24px -6px rgba(0,0,0,.35)}
+.flotante svg{width:32px;height:32px;color:#fff}
+@media (max-width:560px){
+  .grid{grid-template-columns:1fr 1fr;gap:12px}
+  .info{padding:10px 11px 12px}
+  .info h3{font-size:24px}
+  .comps li{font-size:11px;padding:3px 8px}
+  .comps li:nth-child(n+4){display:none}
+  .pie{flex-direction:column;align-items:stretch}
+  .precio{font-size:21px}
+  .pie .btn{justify-content:center;padding:9px 10px;font-size:13px}
+  .num{width:36px;height:36px;font-size:14px}
+  .ver{display:none}
+  .cat-tit h2{font-size:40px}
+  .buscar{flex:1 1 100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="img/logo.png" alt="Flores Nel · Detalles que enamoran" width="720" height="309">
+    <h1>Catálogo de Ramos</h1>
+    <p>148 diseños hechos con amor · Entregas a domicilio</p>
+    <div class="acciones">
+      <a class="btn btn-wa" href="https://wa.me/573208326959?text=Hola%20Flores%20Nel%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.7a11.9 11.9 0 0 0 5.7 1.5c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.9 9.9 0 0 1-1.5-5.3c0-5.5 4.4-9.9 9.9-9.9 2.6 0 5.1 1 7 2.9a9.8 9.8 0 0 1 2.9 7c0 5.5-4.5 9.9-10 9.9zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.2c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5.3-.5v-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4c-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5l1.7.6c.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+        Escríbenos · 320 832 6959</a>
+      <a class="btn btn-borde" href="catalogo.pdf" download="Catalogo Flores Nel.pdf" >Descargar catálogo PDF</a>
+    </div>
+  </div>
+</header>
+
+<nav class="barra" aria-label="Filtros">
+  <div class="wrap">
+    <div class="chips" role="group" aria-label="Categorías">
+      <button class="chip" data-cat="todos" aria-pressed="true">Todos<small>148</small></button>
+      <button class="chip" data-cat="ramos" aria-pressed="false">Ramos<small>87</small></button>
+      <button class="chip" data-cat="mano" aria-pressed="false">Ramos de mano<small>39</small></button>
+      <button class="chip" data-cat="cajas" aria-pressed="false">Cajas de rosas<small>22</small></button>
+    </div>
+    <label class="buscar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="q" placeholder="Buscar: girasoles, peluche, 25…" aria-label="Buscar ramo">
+    </label>
+  </div>
+</nav>
+
+<main class="wrap" id="catalogo"></main>
+<p class="vacio" id="vacio" hidden>No encontramos ramos con esa búsqueda.</p>
+
+<footer>
+  <img src="img/logo.png" alt="" width="220" height="94">
+  <p><strong>Pedidos por WhatsApp:</strong> <a href="https://wa.me/573208326959" target="_blank" rel="noopener">320 832 6959</a></p>
+  <p>Calle 57 sur #87k 36 · Entregas a domicilio</p>
+  <p style="opacity:.75;font-size:13px">Precios en pesos colombianos (COP). Sujetos a disponibilidad de flores.</p>
+</footer>
+
+<a class="flotante" href="https://wa.me/573208326959?text=Hola%20Flores%20Nel" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.7a11.9 11.9 0 0 0 5.7 1.5c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.9 9.9 0 0 1-1.5-5.3c0-5.5 4.4-9.9 9.9-9.9 2.6 0 5.1 1 7 2.9a9.8 9.8 0 0 1 2.9 7c0 5.5-4.5 9.9-10 9.9zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.2c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5.3-.5v-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4c-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5l1.7.6c.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<dialog id="visor" aria-label="Ficha del ramo">
+  <button class="cerrar" id="cerrar" aria-label="Cerrar">×</button>
+  <img id="visor-img" alt="">
+  <div class="barra-d"><span class="precio" id="visor-precio"></span><a class="btn btn-wa" id="visor-wa" target="_blank" rel="noopener">Pedir por WhatsApp</a></div>
+</dialog>
+
+<script>
+const RAMOS = [{"n":1,"nombre":"Ramo Especial","cat":"ramos","precio":90000,"precioTxt":"Consultar","comps":["13 Rosas","2 Lirios","1 Heliconia","Follaje"],"w":441,"h":700},{"n":2,"nombre":"Ramo Especial","cat":"ramos","precio":90000,"precioTxt":"Consultar","comps":["15 Rosas","2 Lirios","1 Heliconia","Follaje"],"w":350,"h":700},{"n":3,"nombre":"Ramo Especial","cat":"ramos","precio":105000,"precioTxt":"Consultar","comps":["21 Rosas","1 Girasol","1 Heliconia","Follaje"],"w":501,"h":700},{"n":4,"nombre":"Girasoles y Rosas","cat":"ramos","precio":170000,"precioTxt":"Consultar","comps":["16 Girasoles","9 Rosas","Follaje"],"w":560,"h":678},{"n":5,"nombre":"Ramo Especial","cat":"ramos","precio":84000,"precioTxt":"Consultar","comps":["15 Rosas","2 Lirios","1 Heliconia","Follaje"],"w":393,"h":700},{"n":6,"nombre":"Ramo Frutero","cat":"ramos","precio":144000,"precioTxt":"Consultar","comps":["5 Girasoles","1 Heliconia","8 Rosas","3 Lirios","2 Ópalos","Fruta variada","Follaje"],"w":547,"h":700},{"n":7,"nombre":"Ramo Especial","cat":"ramos","precio":110000,"precioTxt":"Consultar","comps":["5 Rosas","4 Lirios","Orquídeas","2 Gerberas","2 Aves del paraíso"],"w":472,"h":700},{"n":8,"nombre":"Ramo Especial","cat":"ramos","precio":78000,"precioTxt":"Consultar","comps":["9 Rosas","3 Gerberas","1 Heliconia","Follaje"],"w":506,"h":700},{"n":9,"nombre":"Ramo Especial","cat":"ramos","precio":168000,"precioTxt":"Consultar","comps":["45 Rosas","3 Girasoles","1 Ópalo","Follaje"],"w":421,"h":700},{"n":10,"nombre":"Ramo Tropical","cat":"ramos","precio":180000,"precioTxt":"Consultar","comps":["24 Rosas","10 Gerberas","1 Ave del paraíso","2 Heliconias","3 Ópalos","Orquídeas","3 Lirios","Follaje"],"w":560,"h":618},{"n":11,"nombre":"Ramo Especial","cat":"ramos","precio":132000,"precioTxt":"Consultar","comps":["30 Rosas","1 Heliconia","Follaje"],"w":536,"h":700},{"n":12,"nombre":"Ramo Elegancia","cat":"ramos","precio":108000,"precioTxt":"Consultar","comps":["22 Rosas","6 Gladiolos","Orquídeas","Corazón en palma","2 Girasoles"],"w":560,"h":461},{"n":13,"nombre":"Ramo Frutero","cat":"ramos","precio":132000,"precioTxt":"Consultar","comps":["3 Girasoles","20 Rosas","Fruta variada","Follaje"],"w":405,"h":700},{"n":14,"nombre":"Ramo Frutero","cat":"ramos","precio":144000,"precioTxt":"Consultar","comps":["4 Ópalos","2 Heliconias","4 Aves del paraíso","Fruta variada","3 Gerberas","1 Maraca"],"w":507,"h":700},{"n":15,"nombre":"Ramo Sorpresa","cat":"ramos","precio":85000,"precioTxt":"Consultar","comps":["2 Lirios","3 Gerberas","Peluche (mediano)","Follaje"],"w":560,"h":691},{"n":16,"nombre":"Ramo Tropical","cat":"ramos","precio":144000,"precioTxt":"Consultar","comps":["12 Rosas","3 Lirios","3 Girasoles","4 Chirosas","3 Gerberas","4 Aves del paraíso","1 Heliconia"],"w":560,"h":668},{"n":17,"nombre":"Ramo Especial","cat":"ramos","precio":84000,"precioTxt":"Consultar","comps":["12 Rosas","3 Girasoles","1 Lirio","1 Ópalo","Follaje"],"w":455,"h":700},{"n":18,"nombre":"Ramo Sorpresa","cat":"ramos","precio":156000,"precioTxt":"Consultar","comps":["5 Gerberas","12 Rosas","Peluche (mediano)","Corazón en palma","1 Globo metalizado","Follaje"],"w":485,"h":700},{"n":19,"nombre":"Ramo Especial","cat":"ramos","precio":114000,"precioTxt":"Consultar","comps":["27 Rosas","2 Heliconias"],"w":454,"h":700},{"n":20,"nombre":"Ramo Sorpresa","cat":"ramos","precio":174000,"precioTxt":"Consultar","comps":["24 Rosas","6 Girasoles","Orquídeas","Peluche (pequeño)","1 Lirio"],"w":554,"h":700},{"n":21,"nombre":"Ramo Especial","cat":"ramos","precio":72000,"precioTxt":"Consultar","comps":["12 Rosas","1 Gladiolo","Follaje"],"w":427,"h":700},{"n":22,"nombre":"Ramo Especial","cat":"ramos","precio":132000,"precioTxt":"Consultar","comps":["10 Rosas","5 Gerberas","6 Aves del paraíso","5 Lirios","2 Girasoles","Follaje"],"w":513,"h":700},{"n":23,"nombre":"Ramo Especial","cat":"ramos","precio":114000,"precioTxt":"Consultar","comps":["3 Girasoles","8 Rosas","4 Gladiolos","Follaje"],"w":479,"h":700},{"n":24,"nombre":"Rosas con Chocolates","cat":"ramos","precio":150000,"precioTxt":"Consultar","comps":["4 Girasoles","28 Rosas","5 Gladiolos","3 Chocolates","Follaje"],"w":526,"h":700},{"n":25,"nombre":"Ramo Elegancia","cat":"ramos","precio":78000,"precioTxt":"Consultar","comps":["12 Rosas","4 Gerberas","3 Lirios","Follaje"],"w":428,"h":700},{"n":26,"nombre":"Ramo Tropical","cat":"ramos","precio":114000,"precioTxt":"Consultar","comps":["30 Rosas","1 Ave del paraíso","1 Heliconia","2 Lirios"],"w":505,"h":700},{"n":27,"nombre":"Ramo Elegancia","cat":"ramos","precio":96000,"precioTxt":"Consultar","comps":["24 Rosas","3 Lirios","Follaje"],"w":430,"h":700},{"n":28,"nombre":"Ramo Elegancia","cat":"ramos","precio":78000,"precioTxt":"Consultar","comps":["10 Rosas","2 Gerberas","2 Lirios"],"w":430,"h":700},{"n":29,"nombre":"Ramo Elegancia","cat":"ramos","precio":360000,"precioTxt":"Consultar","comps":["100 Rosas","6 Lirios","Follaje"],"w":560,"h":662},{"n":30,"nombre":"Ramo Elegancia","cat":"ramos","precio":264000,"precioTxt":"Consultar","comps":["70 Rosas","5 Lirios","Follaje"],"w":466,"h":700},{"n":31,"nombre":"Ramo Tropical","cat":"ramos","precio":96000,"precioTxt":"Consultar","comps":["15 Rosas","4 Lirios","3 Chirosas","2 Ópalos","1 Ave del paraíso","Follaje"],"w":535,"h":700},{"n":32,"nombre":"Ramo Especial","cat":"ramos","precio":108000,"precioTxt":"Consultar","comps":["24 Rosas","2 Girasoles","1 Heliconia","3 Gerberas","1 Lirio","Follaje"],"w":358,"h":700},{"n":33,"nombre":"Ramo Sorpresa","cat":"ramos","precio":156000,"precioTxt":"Consultar","comps":["26 Rosas","4 Girasoles","Peluche (mediano)","Follaje"],"w":548,"h":700},{"n":34,"nombre":"Ramo Especial","cat":"ramos","precio":78000,"precioTxt":"Consultar","comps":["4 Rosas","8 Gerberas","4 Gladiolos","Follaje"],"w":503,"h":700},{"n":35,"nombre":"Ramo Sorpresa","cat":"ramos","precio":204000,"precioTxt":"Consultar","comps":["13 Girasoles","1 Peluche (mediano)","Ferrero Rocher (caja x8)"],"w":540,"h":700},{"n":36,"nombre":"Ramo de Rosas","cat":"ramos","precio":156000,"precioTxt":"Consultar","comps":["38 Rosas","Follaje"],"w":371,"h":700},{"n":37,"nombre":"Ramo Sorpresa","cat":"ramos","precio":168000,"precioTxt":"Consultar","comps":["2 Girasoles","2 Aves del paraíso","17 Rosas","2 Lirios","1 Peluche (mediano)","Follaje"],"w":540,"h":700},{"n":38,"nombre":"Ramo Sorpresa","cat":"ramos","precio":144000,"precioTxt":"Consultar","comps":["18 Rosas","3 Girasoles","Peluche (pequeño)","2 Lirios","3 Ópalos","4 Chirosas","Follaje"],"w":481,"h":700},{"n":39,"nombre":"Ramo Frutero","cat":"ramos","precio":132000,"precioTxt":"Consultar","comps":["3 Ópalos","14 Rosas","3 Gerberas","3 Lirios","Fruta variada","Follaje"],"w":560,"h":675},{"n":40,"nombre":"Ramo Sorpresa","cat":"ramos","precio":132000,"precioTxt":"Consultar","comps":["12 Rosas","1 Gladiolo","Peluche (mediano)","2 Lirios","Orquídeas","2 Gerberas","Follaje"],"w":531,"h":700},{"n":41,"nombre":"Ramo Frutero","cat":"ramos","precio":144000,"precioTxt":"Consultar","comps":["25 Rosas","2 Lirios","Fruta variada","1 Heliconia"],"w":560,"h":664},{"n":42,"nombre":"Ramo Elegancia","cat":"ramos","precio":75000,"precioTxt":"Consultar","comps":["5 Gerberas","2 Lirios","Clavellina","Follaje"],"w":390,"h":700},{"n":43,"nombre":"Ramo Especial","cat":"ramos","precio":102000,"precioTxt":"Consultar","comps":["25 Rosas","1 Girasol","Follaje"],"w":487,"h":700},{"n":44,"nombre":"Ramo Especial","cat":"ramos","precio":114000,"precioTxt":"Consultar","comps":["24 Rosas","1 Girasol","Margaritas","Follaje"],"w":428,"h":700},{"n":45,"nombre":"Ramo Elegancia","cat":"ramos","precio":114000,"precioTxt":"Consultar","comps":["14 Rosas","3 Chirosas","1 Lirio","1 Globo burbuja"],"w":554,"h":700},{"n":46,"nombre":"Ramo de Girasoles","cat":"ramos","precio":114000,"precioTxt":"Consultar","comps":["12 Girasoles","Follaje"],"w":560,"h":657},{"n":47,"nombre":"Ramo Especial","cat":"ramos","precio":110000,"precioTxt":"Consultar","comps":["23 Rosas","3 Girasoles","Globo metalizado"],"w":560,"h":698},{"n":48,"nombre":"Ramo Especial","cat":"ramos","precio":168000,"precioTxt":"Consultar","comps":["32 Rosas","8 Girasoles","Globo metalizado (grande)"],"w":548,"h":700},{"n":49,"nombre":"Ramo Especial","cat":"ramos","precio":144000,"precioTxt":"Consultar","comps":["12 Girasoles","Vino","Follaje"],"w":421,"h":700},{"n":50,"nombre":"Ramo Especial","cat":"ramos","precio":108000,"precioTxt":"Consultar","comps":["25 Rosas","1 Lirio","1 Heliconia","Follaje"],"w":423,"h":700},{"n":51,"nombre":"Ramo Especial","cat":"ramos","precio":114000,"precioTxt":"Consultar","comps":["16 Rosas","12 Chirosas","2 Heliconias","4 Cartuchos","4 Lirios"],"w":465,"h":700},{"n":52,"nombre":"Rosas con Chocolates","cat":"ramos","precio":144000,"precioTxt":"Consultar","comps":["30 Rosas","Ferrero en corazón","Follaje"],"w":560,"h":537},{"n":53,"nombre":"Ramo Frutero","cat":"ramos","precio":156000,"precioTxt":"Consultar","comps":["4 Girasoles","12 Rosas","Fruta variada","Follaje"],"w":560,"h":625},{"n":54,"nombre":"Ramo Sorpresa","cat":"ramos","precio":264000,"precioTxt":"Consultar","comps":["40 Rosas","Peluche (mediano)","5 Heliconias","5 Girasoles","6 Aves del paraíso","3 Globos metalizados"],"w":560,"h":607},{"n":55,"nombre":"Ramo Tropical","cat":"ramos","precio":108000,"precioTxt":"Consultar","comps":["20 Rosas","4 Lirios","3 Girasoles","3 Aves del paraíso","1 Heliconia","Follaje"],"w":509,"h":700},{"n":56,"nombre":"Ramo Especial","cat":"ramos","precio":90000,"precioTxt":"Consultar","comps":["14 Rosas","3 Girasoles","Follaje"],"w":435,"h":700},{"n":57,"nombre":"Ramo de Rosas","cat":"ramos","precio":68000,"precioTxt":"Consultar","comps":["12 Rosas","Follaje"],"w":523,"h":700},{"n":58,"nombre":"Ramo Especial","cat":"ramos","precio":132000,"precioTxt":"Consultar","comps":["35 Rosas","3 Girasoles","1 Ópalo"],"w":478,"h":700},{"n":59,"nombre":"Ramo Sorpresa","cat":"ramos","precio":156000,"precioTxt":"Consultar","comps":["15 Rosas","1 Peluche (pequeño)","5 Ópalos","5 Lirios","Follaje"],"w":560,"h":690},{"n":60,"nombre":"Ramo Sorpresa","cat":"ramos","precio":150000,"precioTxt":"Consultar","comps":["Rosas","1 Peluche (grande)","2 Lirios","2 Chocolates","1 Globo metalizado (pequeño)"],"w":560,"h":675},{"n":61,"nombre":"Ramo Especial","cat":"ramos","precio":240000,"precioTxt":"Consultar","comps":["60 Rosas","1 Ave del paraíso","1 Lirio","Follaje"],"w":491,"h":700},{"n":62,"nombre":"Ramo Exótico","cat":"ramos","precio":75000,"precioTxt":"Consultar","comps":[],"w":486,"h":700},{"n":63,"nombre":"Ramo Frutero","cat":"ramos","precio":125000,"precioTxt":"Consultar","comps":["24 Rosas","5 Chirosas","4 Gerberas","Fruta variada","1 Heliconia","Follaje"],"w":401,"h":700},{"n":64,"nombre":"Ramo Elegancia","cat":"ramos","precio":50000,"precioTxt":"Consultar","comps":["9 Rosas","1 Lirio"],"w":445,"h":700},{"n":65,"nombre":"Ramo Especial","cat":"ramos","precio":100000,"precioTxt":"Consultar","comps":["12 Rosas","3 Girasoles","Follaje"],"w":405,"h":700},{"n":66,"nombre":"Rosas con Chocolates","cat":"ramos","precio":90000,"precioTxt":"Consultar","comps":["20 Rosas","1 Chocolatina","Follaje"],"w":560,"h":619},{"n":67,"nombre":"Ramo Tropical","cat":"ramos","precio":65000,"precioTxt":"Consultar","comps":["7 Rosas","2 Aves del paraíso","3 Gerberas","2 Maracas"],"w":445,"h":700},{"n":68,"nombre":"Ramo de Rosas","cat":"ramos","precio":220000,"precioTxt":"Consultar","comps":["45 Rosas","Follaje"],"w":547,"h":700},{"n":69,"nombre":"Ramo Elegancia","cat":"ramos","precio":115000,"precioTxt":"Consultar","comps":["30 Rosas","4 Lirios","Follaje"],"w":462,"h":700},{"n":70,"nombre":"Ramo Tropical","cat":"ramos","precio":115000,"precioTxt":"Consultar","comps":["12 Rosas","3 Girasoles","8 Lirios","4 Ópalos","2 Aves del paraíso"],"w":490,"h":700},{"n":71,"nombre":"Ramo Especial","cat":"ramos","precio":90000,"precioTxt":"Consultar","comps":["15 Rosas","3 Gerberas","3 Aves del paraíso","2 Lirios","Follaje"],"w":487,"h":700},{"n":72,"nombre":"Ramo Elegancia","cat":"ramos","precio":95000,"precioTxt":"Consultar","comps":["22 Rosas","4 Lirios","Follaje"],"w":452,"h":700},{"n":73,"nombre":"Ramo Sorpresa","cat":"ramos","precio":180000,"precioTxt":"Consultar","comps":["35 Rosas","Peluche (mediano)","Follaje"],"w":347,"h":700},{"n":74,"nombre":"Ramo de Girasoles","cat":"ramos","precio":45000,"precioTxt":"Consultar","comps":["3 Girasoles","Follaje"],"w":324,"h":700},{"n":75,"nombre":"Ramo de Girasoles","cat":"ramos","precio":45000,"precioTxt":"Consultar","comps":["3 Girasoles","Follaje"],"w":494,"h":700},{"n":76,"nombre":"Ramo Especial","cat":"ramos","precio":96000,"precioTxt":"Consultar","comps":["17 Rosas","2 Ópalos","6 Gladiolos","Follaje"],"w":560,"h":666},{"n":77,"nombre":"Ramo Especial","cat":"ramos","precio":132000,"precioTxt":"Consultar","comps":["9 Girasoles","20 Rosas","Follaje"],"w":495,"h":700},{"n":78,"nombre":"Ramo Especial","cat":"ramos","precio":132000,"precioTxt":"Consultar","comps":["5 Girasoles","30 Rosas","Follaje"],"w":523,"h":700},{"n":79,"nombre":"Rosas con Chocolates","cat":"ramos","precio":165000,"precioTxt":"Consultar","comps":["32 Rosas","Ferrero en corazón","Follaje"],"w":490,"h":700},{"n":80,"nombre":"Rosas con Chocolates","cat":"ramos","precio":210000,"precioTxt":"Consultar","comps":["30 Rosas","Ferrero en corazón","2 Lirios"],"w":560,"h":655},{"n":81,"nombre":"Ramo Tropical","cat":"ramos","precio":115000,"precioTxt":"Consultar","comps":["20 Rosas","2 Gladiolos","3 Ópalos","1 Heliconia","1 Girasol","Follaje"],"w":390,"h":700},{"n":82,"nombre":"Ramo Elegancia","cat":"ramos","precio":95000,"precioTxt":"Consultar","comps":["22 Rosas","2 Lirios","Follaje"],"w":478,"h":700},{"n":83,"nombre":"Ramo de Rosas","cat":"ramos","precio":98000,"precioTxt":"Consultar","comps":["24 Rosas","Follaje"],"w":560,"h":607},{"n":84,"nombre":"Ramo Especial","cat":"ramos","precio":80000,"precioTxt":"Consultar","comps":["1 Heliconia","15 Rosas","2 Lirios","Follaje"],"w":555,"h":700},{"n":85,"nombre":"Ramo Elegancia","cat":"ramos","precio":156000,"precioTxt":"Consultar","comps":["18 Rosas","4 Girasoles","2 Lirios","Orquídea","Margaritas","Follaje","Caja decorativa"],"w":416,"h":700},{"n":86,"nombre":"Ramo Elegancia","cat":"ramos","precio":90000,"precioTxt":"Consultar","comps":["11 Rosas","4 Lirios","Follaje"],"w":420,"h":700},{"n":87,"nombre":"Ramo Sorpresa","cat":"ramos","precio":205000,"precioTxt":"Consultar","comps":["24 Rosas","4 Girasoles","3 Gerberas","Fruta variada","3 Ópalos","1 Gladiolo","4 Lirios","1 Peluche (pequeño)","Globo burbuja"],"w":432,"h":700},{"n":88,"nombre":"Ramo de Girasoles","cat":"mano","precio":115000,"precioTxt":"Consultar","comps":["12 Girasoles","Follaje"],"w":560,"h":615},{"n":89,"nombre":"Girasoles y Rosas","cat":"mano","precio":null,"precioTxt":"Precio según cantidad","comps":["Girasoles","Rosas","Follaje"],"w":560,"h":549},{"n":90,"nombre":"Ramo de Rosas","cat":"mano","precio":55000,"precioTxt":"Consultar","comps":["12 Rosas","Follaje"],"w":446,"h":700},{"n":91,"nombre":"Ramo de Rosas","cat":"mano","precio":80000,"precioTxt":"Consultar","comps":["20 Rosas","Follaje"],"w":546,"h":700},{"n":92,"nombre":"Ramo Elegancia","cat":"mano","precio":65000,"precioTxt":"Consultar","comps":["9 Rosas","3 Lirios","Follaje"],"w":560,"h":693},{"n":93,"nombre":"Ramo de Rosas","cat":"mano","precio":75000,"precioTxt":"Consultar","comps":["24 Rosas","Follaje"],"w":488,"h":700},{"n":94,"nombre":"Rosas con Chocolates","cat":"mano","precio":null,"precioTxt":"Precio según cantidad","comps":["Rosas","Chocolates"],"w":560,"h":668},{"n":95,"nombre":"Ramo de Girasoles","cat":"mano","precio":72000,"precioTxt":"Consultar","comps":["8 Girasoles","Follaje"],"w":560,"h":540},{"n":96,"nombre":"Ramo Especial","cat":"mano","precio":150000,"precioTxt":"Consultar","comps":["50 Rosas","Mariposas","Corona"],"w":560,"h":610},{"n":97,"nombre":"Ramo de Girasoles","cat":"mano","precio":72000,"precioTxt":"Consultar","comps":["7 Girasoles","Follaje"],"w":547,"h":700},{"n":98,"nombre":"Ramo de Rosas","cat":"mano","precio":55000,"precioTxt":"Consultar","comps":["12 Rosas (del color que desee)","Follaje"],"w":560,"h":576},{"n":99,"nombre":"Ramo Especial","cat":"mano","precio":85000,"precioTxt":"Consultar","comps":["24 Rosas","Mariposas","Follaje"],"w":530,"h":700},{"n":100,"nombre":"Ramo Especial","cat":"mano","precio":75000,"precioTxt":"Consultar","comps":["6 Gerberas","5 Girasoles","Astromelia"],"w":560,"h":555},{"n":101,"nombre":"Ramo Especial","cat":"mano","precio":40000,"precioTxt":"Consultar","comps":["5 Rosas","1 Girasol","Cartulina decorativa","Follaje"],"w":365,"h":700},{"n":102,"nombre":"Ramo Especial","cat":"mano","precio":75000,"precioTxt":"Consultar","comps":["1 Girasol","20 Rosas","Follaje"],"w":560,"h":602},{"n":103,"nombre":"Ramo Especial","cat":"mano","precio":95000,"precioTxt":"Consultar","comps":["3 Girasoles","24 Rosas","Follaje"],"w":560,"h":635},{"n":104,"nombre":"Ramo de Rosas","cat":"mano","precio":80000,"precioTxt":"Consultar","comps":["20 Rosas","Follaje"],"w":362,"h":700},{"n":105,"nombre":"Ramo Especial","cat":"mano","precio":65000,"precioTxt":"Consultar","comps":["12 Rosas","2 Girasoles","Follaje"],"w":560,"h":675},{"n":106,"nombre":"Ramo de Rosas","cat":"mano","precio":80000,"precioTxt":"Consultar","comps":["20 Rosas","Follaje"],"w":538,"h":700},{"n":107,"nombre":"Ramo de Rosas","cat":"mano","precio":45000,"precioTxt":"Consultar","comps":["9 Rosas","Follaje","Cartulina decorativa"],"w":336,"h":700},{"n":108,"nombre":"Ramo Especial","cat":"mano","precio":95000,"precioTxt":"Consultar","comps":["22 Rosas","1 Girasol","Follaje"],"w":560,"h":556},{"n":109,"nombre":"Ramo de Girasoles","cat":"mano","precio":90000,"precioTxt":"Consultar","comps":["7 Girasoles","Follaje"],"w":560,"h":649},{"n":110,"nombre":"Ramo de Girasoles","cat":"mano","precio":85000,"precioTxt":"Consultar","comps":["7 Girasoles","Follaje"],"w":481,"h":700},{"n":111,"nombre":"Ramo Sorpresa","cat":"mano","precio":115000,"precioTxt":"Consultar","comps":["3 Globos metalizados","Peluche (grande)","12 Rosas","Chocolatina"],"w":443,"h":700},{"n":112,"nombre":"Ramo de Girasoles","cat":"mano","precio":90000,"precioTxt":"Consultar","comps":["8 Girasoles","Follaje"],"w":484,"h":700},{"n":113,"nombre":"Ramo Elegancia","cat":"mano","precio":75000,"precioTxt":"Consultar","comps":["1 Paquete de margaritas","4 Girasoles","1 Paquete de chirosas","1 Lirio"],"w":474,"h":700},{"n":114,"nombre":"Rosas con Chocolates","cat":"mano","precio":140000,"precioTxt":"Consultar","comps":["30 Rosas","Chocolates (caja x8)"],"w":560,"h":580},{"n":115,"nombre":"Rosas con Chocolates","cat":"mano","precio":165000,"precioTxt":"Consultar","comps":["30 Chocolates","18 Rosas"],"w":560,"h":675},{"n":116,"nombre":"Rosas con Chocolates","cat":"mano","precio":125000,"precioTxt":"Consultar","comps":["15 Rosas","Follaje","16 Chocolates"],"w":560,"h":696},{"n":117,"nombre":"Ramo de Rosas","cat":"mano","precio":100000,"precioTxt":"Consultar","comps":["24 Rosas","Follaje"],"w":560,"h":673},{"n":118,"nombre":"Ramo de Girasoles","cat":"mano","precio":95000,"precioTxt":"Consultar","comps":["4 Rosas","3 Girasoles","Follaje","Peluche"],"w":560,"h":664},{"n":119,"nombre":"Ramo Especial","cat":"mano","precio":null,"precioTxt":"Precio según cantidad","comps":["Rosas","Mariposas"],"w":560,"h":639},{"n":120,"nombre":"Ramo Elegancia","cat":"mano","precio":65000,"precioTxt":"Consultar","comps":["2 Lirios","4 Girasoles","Follaje"],"w":560,"h":647},{"n":121,"nombre":"Ramo Especial","cat":"mano","precio":75000,"precioTxt":"Consultar","comps":["12 Rosas","Follaje","1 Girasol"],"w":560,"h":531},{"n":122,"nombre":"Ramo de Girasoles","cat":"mano","precio":50000,"precioTxt":"Consultar","comps":["3 Girasoles","Follaje"],"w":560,"h":697},{"n":123,"nombre":"Ramo de Rosas","cat":"mano","precio":null,"precioTxt":"Precio según cantidad","comps":["Rosas"],"w":560,"h":429},{"n":124,"nombre":"Ramo Sorpresa","cat":"mano","precio":100000,"precioTxt":"Consultar","comps":["15 Rosas","Follaje","1 Peluche"],"w":557,"h":700},{"n":125,"nombre":"Ramo Sorpresa","cat":"mano","precio":115000,"precioTxt":"Consultar","comps":["15 Rosas","Follaje","1 Peluche"],"w":560,"h":681},{"n":126,"nombre":"Ramo Especial","cat":"mano","precio":95000,"precioTxt":"Consultar","comps":["7 Girasoles","Follaje","9 Rosas"],"w":560,"h":545},{"n":127,"nombre":"Rosas con Chocolates","cat":"cajas","precio":145000,"precioTxt":"Consultar","comps":["22 Rosas","3 Girasoles","15 Claveles","12 Chocolates"],"w":560,"h":616},{"n":128,"nombre":"Rosas con Chocolates","cat":"cajas","precio":110000,"precioTxt":"Consultar","comps":["12 Rosas","Ferrero Rocher (caja x4)","3 Globos burbuja (pequeño)"],"w":560,"h":405},{"n":129,"nombre":"Rosas con Chocolates","cat":"cajas","precio":125000,"precioTxt":"Consultar","comps":["24 Rosas","12 Chocolates","Caja decorativa"],"w":560,"h":596},{"n":130,"nombre":"Rosas con Chocolates","cat":"cajas","precio":155000,"precioTxt":"Consultar","comps":["30 Rosas","10 Globos burbuja","Ferrero Rocher"],"w":560,"h":514},{"n":131,"nombre":"Caja Especial","cat":"cajas","precio":null,"precioTxt":"Precio según cantidad","comps":["Girasoles","Rosas"],"w":560,"h":673},{"n":132,"nombre":"Caja de Rosas","cat":"cajas","precio":80000,"precioTxt":"Consultar","comps":["9 Rosas","Caja decorativa","Follaje"],"w":560,"h":579},{"n":133,"nombre":"Caja Sorpresa","cat":"cajas","precio":120000,"precioTxt":"Consultar","comps":["15 Rosas","2 Claveles","1 Globo metalizado"],"w":317,"h":700},{"n":134,"nombre":"Rosas con Chocolates","cat":"cajas","precio":170000,"precioTxt":"Consultar","comps":["18 Rosas","12 Ferrero Rocher","6 Cervezas"],"w":560,"h":530},{"n":135,"nombre":"Rosas con Chocolates","cat":"cajas","precio":100000,"precioTxt":"Consultar","comps":["5 Girasoles","9 Rosas","Ferrero Rocher (caja x4)"],"w":489,"h":700},{"n":136,"nombre":"Rosas con Chocolates","cat":"cajas","precio":170000,"precioTxt":"Consultar","comps":["10 Girasoles","8 Chocolates","12 Rosas","Follaje"],"w":524,"h":700},{"n":137,"nombre":"Caja de Girasoles","cat":"cajas","precio":140000,"precioTxt":"Consultar","comps":["9 Girasoles","Caja decorativa","Follaje"],"w":560,"h":519},{"n":138,"nombre":"Rosas con Chocolates","cat":"cajas","precio":180000,"precioTxt":"Consultar","comps":["15 Rosas","Ferrero Rocher (caja x8)","1 Peluche","1 Vino"],"w":533,"h":700},{"n":139,"nombre":"Rosas con Chocolates","cat":"cajas","precio":115000,"precioTxt":"Consultar","comps":["16 Rosas","Ferrero Rocher (caja x3)","Follaje","Caja decorativa"],"w":505,"h":700},{"n":140,"nombre":"Caja de Rosas","cat":"cajas","precio":95000,"precioTxt":"Consultar","comps":["16 Rosas","Follaje"],"w":560,"h":629},{"n":141,"nombre":"Caja de Rosas","cat":"cajas","precio":95000,"precioTxt":"Consultar","comps":["16 Rosas","Follaje"],"w":560,"h":688},{"n":142,"nombre":"Rosas con Chocolates","cat":"cajas","precio":125000,"precioTxt":"Consultar","comps":["16 Rosas","1 Peluche","1 Ferrero Rocher (caja x8)","Follaje"],"w":560,"h":620},{"n":143,"nombre":"Rosas con Chocolates","cat":"cajas","precio":150000,"precioTxt":"Consultar","comps":["30 Rosas","Ferrero en corazón","Caja decorativa","Follaje"],"w":560,"h":622},{"n":144,"nombre":"Rosas con Chocolates","cat":"cajas","precio":125000,"precioTxt":"Consultar","comps":["25 Rosas","Caja decorativa","Ferrero Rocher (caja x3)"],"w":560,"h":573},{"n":145,"nombre":"Rosas con Chocolates","cat":"cajas","precio":150000,"precioTxt":"Consultar","comps":["24 Rosas","12 Ferrero Rocher"],"w":560,"h":596},{"n":146,"nombre":"Caja de Rosas","cat":"cajas","precio":95000,"precioTxt":"Consultar","comps":["16 Rosas","Caja decorativa","Follaje"],"w":560,"h":517},{"n":147,"nombre":"Rosas con Chocolates","cat":"cajas","precio":null,"precioTxt":"Precio según cantidad","comps":["Rosas","Ferrero Rocher"],"w":560,"h":520},{"n":148,"nombre":"Caja de Rosas","cat":"cajas","precio":95000,"precioTxt":"Consultar","comps":["18 Rosas","Follaje"],"w":560,"h":448}];
+const WA = "573208326959";
+const CATS = [["ramos","Ramos","Arreglos florales"],["mano","Ramos de mano","Bouquets para regalar"],["cajas","Cajas de rosas","Detalles en caja"]];
+const fmt = n => "$" + n.toLocaleString("es-CO");
+const precio = r => r.precio ? fmt(r.precio) : r.precioTxt;
+const nn = n => String(n).padStart(2,"0");
+const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+const waLink = r => `https://wa.me/${WA}?text=` + encodeURIComponent(
+  `Hola Flores Nel 🌹 Quiero pedir el ramo N° ${nn(r.n)} – ${r.nombre}` + (r.precio ? ` (${fmt(r.precio)})` : "") + `. ¿Está disponible?`);
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function tarjeta(r){
+  return `<article class="card" data-n="${r.n}">
+    <button class="foto" data-ver="${r.n}" aria-label="Ver ficha del ramo ${nn(r.n)}">
+      <span class="num">${nn(r.n)}</span><span class="ver">Ver ficha</span>
+      <img src="img/${String(r.n).padStart(3,"0")}.webp" alt="${esc(r.nombre)} N° ${nn(r.n)}" loading="lazy" width="${r.w}" height="${r.h}">
+    </button>
+    <div class="info">
+      <h3>${esc(r.nombre)}</h3>
+      ${r.comps.length ? `<ul class="comps">${r.comps.map(c=>`<li>${esc(c)}</li>`).join("")}</ul>` : ""}
+      <div class="pie">
+        <span class="precio ${r.precio ? "" : "txt"}">${esc(precio(r))}</span>
+        <a class="btn btn-wa" href="${waLink(r)}" target="_blank" rel="noopener">Pedir</a>
+      </div>
+    </div></article>`;
+}
+
+const main = document.getElementById("catalogo");
+main.innerHTML = CATS.map(([k,t,s]) => {
+  const lista = RAMOS.filter(r => r.cat === k);
+  if (!lista.length) return "";
+  return `<section class="cat" id="sec-${k}" data-cat="${k}">
+    <div class="cat-tit"><h2>${t}</h2><span>${s}</span></div>
+    <div class="grid">${lista.map(tarjeta).join("")}</div></section>`;
+}).join("");
+
+let cat = "todos";
+const q = document.getElementById("q");
+function filtrar(){
+  const t = norm(q.value.trim());
+  let visibles = 0;
+  document.querySelectorAll("section.cat").forEach(sec => {
+    let enSec = 0;
+    sec.querySelectorAll(".card").forEach(card => {
+      const r = RAMOS.find(x => x.n == card.dataset.n);
+      const texto = norm([r.n, nn(r.n), r.nombre, ...r.comps, precio(r)].join(" "));
+      const ok = (cat === "todos" || r.cat === cat) && (!t || texto.includes(t));
+      card.hidden = !ok; if (ok) enSec++;
+    });
+    sec.hidden = enSec === 0; visibles += enSec;
+  });
+  document.getElementById("vacio").hidden = visibles > 0;
+}
+document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+  cat = b.dataset.cat;
+  document.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x === b));
+  try { history.replaceState(null, "", cat === "todos" ? location.pathname : "#" + cat); } catch(e){}
+  filtrar();
+  window.scrollTo({top: document.querySelector(".barra").offsetTop, behavior: "smooth"});
+}));
+q.addEventListener("input", filtrar);
+const inicial = location.hash.slice(1);
+if (["ramos","mano","cajas"].includes(inicial)) document.querySelector(`.chip[data-cat="${inicial}"]`).click();
+
+const visor = document.getElementById("visor");
+main.addEventListener("click", e => {
+  const b = e.target.closest("[data-ver]"); if (!b) return;
+  const r = RAMOS.find(x => x.n == b.dataset.ver);
+  document.getElementById("visor-img").src = `fichas/${String(r.n).padStart(3,"0")}.jpg`;
+  document.getElementById("visor-img").alt = `Ficha ${r.nombre} N° ${nn(r.n)}`;
+  document.getElementById("visor-precio").textContent = precio(r);
+  document.getElementById("visor-wa").href = waLink(r);
+  visor.showModal();
+});
+document.getElementById("cerrar").onclick = () => visor.close();
+visor.addEventListener("click", e => { if (e.target === visor) visor.close(); });
+</script>
+</body>
+</html>
